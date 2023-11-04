@@ -1,0 +1,14 @@
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "example-http"
+version = { workspace = true }
+edition = { workspace = true }
+
+[[bin]]
+name = "example-http"
+path = "./main.rs"
+
+[dependencies]
+tokio = { version = "1.33.0", features = ["macros", "rt-multi-thread"] }
+tower = { version = "0.4.13", features = [] }

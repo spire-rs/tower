@@ -1,0 +1,46 @@
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "tower-scrap"
+readme = "./README.md"
+
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+
+documentation = "https://docs.rs/tower-scrap"
+categories = ["asynchronous", "web-programming"]
+keywords = ["crawler", "scraper", "tower"]
+description = """
+Tower middlewares, adapters and utilities useful for web scraping.
+"""
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[lib]
+path = "./lib.rs"
+
+[features]
+default = []
+full = []
+
+browser = []
+driver = []
+
+parse = []
+reduce = []
+
+tracing = ["dep:tracing"]
+util = []
+
+[dependencies]
+tower = { workspace = true }
+async-trait = { workspace = true }
+pin-project-lite = { workspace = true }
+tracing = { workspace = true, optional = true }
