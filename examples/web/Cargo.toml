@@ -1,0 +1,19 @@
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "example-web"
+version = { workspace = true }
+edition = { workspace = true }
+
+[[bin]]
+name = "example-web"
+path = "./main.rs"
+
+[dependencies]
+tokio = { version = "1.33.0", features = ["macros", "rt-multi-thread"] }
+reqwest = { version = "0.11.22", features = [] }
+
+tower = { version = "0.4.13", features = ["util"] }
+tower-crawl = { path = "../../tower-crawl", features = ["exclude", "include"] }
+tower-scrap = { path = "../../tower-scrap", features = [] }
+tower-flow = { path = "../../tower-flow", features = [] }
